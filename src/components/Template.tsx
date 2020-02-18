@@ -16,6 +16,8 @@ const Wrapper = styled.div`
   background-color: #fff;
   margin: auto;
   margin-top: 100px;
+  border-radius: 16px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
 `;
 
 export default Template;
