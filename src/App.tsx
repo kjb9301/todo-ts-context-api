@@ -2,12 +2,15 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import Template from './components/Template';
+import TodoHeader from './components/TodoHeader';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Template>react</Template>
+      <Template>
+        <TodoHeader />
+      </Template>
     </>
   );
 }
