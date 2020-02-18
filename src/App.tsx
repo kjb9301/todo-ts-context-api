@@ -1,11 +1,13 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
+import Template from './components/Template';
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div className='App'>react</div>
+      <Template>react</Template>
     </>
   );
 }
