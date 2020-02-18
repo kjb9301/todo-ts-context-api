@@ -1,7 +1,19 @@
-import React from "react";
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 
 function App() {
-  return <div className='App'>react</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <div className='App'>react</div>
+    </>
+  );
 }
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #e9ecef;
+  }
+`;
 
 export default App;
