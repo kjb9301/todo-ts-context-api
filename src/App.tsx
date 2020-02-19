@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import Template from './components/Template';
 import TodoHeader from './components/TodoHeader';
 import TodoCreate from './components/TodoCreate';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Template>
         <TodoHeader />
         <TodoCreate />
+        <TodoList />
       </Template>
     </>
   );
