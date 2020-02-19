@@ -12,10 +12,11 @@ function TodoCreate() {
 }
 
 const Wrapper = styled.div`
-  height: 50px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #f8f9fa;
 `;
 
 export default TodoCreate;
