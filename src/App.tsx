@@ -5,15 +5,18 @@ import Template from './components/Template';
 import TodoHeader from './components/TodoHeader';
 import TodoCreate from './components/TodoCreate';
 import TodoList from './components/TodoList';
+import { TodosContextProvider } from './contexts/TodosContext';
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Template>
-        <TodoHeader />
-        <TodoCreate />
-        <TodoList />
+        <TodosContextProvider>
+          <TodoHeader />
+          <TodoCreate />
+          <TodoList />
+        </TodosContextProvider>
       </Template>
     </>
   );
