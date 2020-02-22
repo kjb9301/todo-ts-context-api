@@ -10,7 +10,7 @@ type TodosState = Todo[];
 
 export const TodosStateContext = createContext<TodosState | null>(null);
 
-type Action = { type: 'CREATE'; text: string } | { type: 'TOGGLE' } | { type: 'REMOVE' };
+type Action = { type: 'CREATE'; text: string } | { type: 'TOGGLE'; id: number } | { type: 'REMOVE'; id: number };
 
 type TodosDispatch = Dispatch<Action>;
 
@@ -25,6 +25,10 @@ function todosReducer(state: TodosState, action: Action): TodosState {
         text: action.text,
         done: false
       });
+    case 'TOGGLE':
+      return state.map(todo => (todo.id === action.id ? { ...todo, done: !todo.done } : todo));
+    case 'REMOVE':
+      return state.filter(todo => todo.id !== action.id);
     default:
       throw new Error('unhandled action');
   }
