@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import TodoItem from './TodoItem';
-
-const todoList = [
-  { id: 0, text: '숨쉬기', done: true },
-  { id: 1, text: '개발하기', done: false },
-  { id: 2, text: '잠자기', done: false }
-];
+import { TodosStateContext } from '../contexts/TodosContext';
 
 function TodoList() {
+  const todoList = useContext(TodosStateContext);
+  console.log(todoList);
   return (
     <Wrapper>
-      {todoList.map(todo => {
-        return <TodoItem key={todo.id} todo={todo} />;
-      })}
+      {todoList &&
+        todoList.map(todo => {
+          return <TodoItem key={todo.id} todo={todo} />;
+        })}
     </Wrapper>
   );
 }

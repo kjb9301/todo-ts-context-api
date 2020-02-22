@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import Template from './components/Template';
