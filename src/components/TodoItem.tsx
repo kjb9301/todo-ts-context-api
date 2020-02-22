@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+
+import { TodosDispatchContext } from '../contexts/TodosContext';
 
 type TodoItemProps = {
   todo: Todo;
 };
 
 type Todo = {
+  id: number;
   text: string;
   done: boolean;
 };
 
 function TodoItem({ todo }: TodoItemProps) {
-  const { text, done } = todo;
+  const { id, text, done } = todo;
+  const dispatch = useContext(TodosDispatchContext);
+  const onToggle = () => {
+    dispatch &&
+      dispatch({
+        type: 'TOGGLE',
+        id: id
+      });
+  };
+
+  const onRemove = () => {
+    dispatch &&
+      dispatch({
+        type: 'REMOVE',
+        id: id
+      });
+  };
   return (
     <Wrapper>
-      <CheckBox done={done}>{done && <MdDone />}</CheckBox>
+      <CheckBox done={done} onClick={onToggle}>
+        {done && <MdDone />}
+      </CheckBox>
       <TextBox done={done}>{text}</TextBox>
-      <DeleteBox>
+      <DeleteBox onClick={onRemove}>
         <MdDelete />
       </DeleteBox>
     </Wrapper>
