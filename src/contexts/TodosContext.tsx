@@ -8,13 +8,13 @@ export type Todo = {
 
 type TodosState = Todo[];
 
-const TodosStateContext = createContext<TodosState | undefined>(undefined);
+export const TodosStateContext = createContext<TodosState | null>(null);
 
 type Action = { type: 'CREATE'; text: string } | { type: 'TOGGLE' } | { type: 'REMOVE' };
 
 type TodosDispatch = Dispatch<Action>;
 
-const TodosDispatchContext = createContext<TodosDispatch | undefined>(undefined);
+export const TodosDispatchContext = createContext<TodosDispatch | null>(null);
 
 function todosReducer(state: TodosState, action: Action): TodosState {
   switch (action.type) {
