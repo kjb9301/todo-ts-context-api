@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+
+import { TodosStateContext } from '../contexts/TodosContext';
 
 function TodoHeader() {
   const today = new Date();
@@ -9,11 +11,13 @@ function TodoHeader() {
     day: 'numeric',
     weekday: 'long'
   });
+  const todoList = useContext(TodosStateContext);
+  if (!todoList) return null;
   return (
     <Wrapper>
       <HeaderText>투두리스트</HeaderText>
       <DateText>{dateString}</DateText>
-      <UndoneText>할 일 0개 남음</UndoneText>
+      <UndoneText>{`할 일 ${todoList.length}개 남음`}</UndoneText>
     </Wrapper>
   );
 }
